@@ -4,23 +4,20 @@
 ## AnyKernel setup
 # begin properties
 properties() { '
-kernel.string=ExampleKernel by osm0sis @ xda-developers
+kernel.string=Raksasa Kernel X01BD by Nxtha @RaksasaGang
 do.devicecheck=1
 do.modules=0
 do.systemless=1
 do.cleanup=1
 do.cleanuponabort=0
-device.name1=maguro
-device.name2=toro
-device.name3=toroplus
-device.name4=tuna
-device.name5=
-supported.versions=
+device.name1=X01BD
+device.name2=X01BDA
+supported.versions=10 - 11
 supported.patchlevels=
 '; } # end properties
 
 # shell variables
-block=/dev/block/platform/omap/omap_hsmmc.0/by-name/boot;
+block=/dev/block/bootdevice/by-name/boot;
 is_slot_device=0;
 ramdisk_compression=auto;
 
@@ -57,8 +54,45 @@ patch_fstab fstab.tuna /cache ext4 options "barrier=1" "barrier=0,nomblk_io_subm
 patch_fstab fstab.tuna /data ext4 options "data=ordered" "nomblk_io_submit,data=writeback";
 append_file fstab.tuna "usbdisk" fstab;
 
+# remove spectrum profile
+if [ -e $ramdisk/init.spectrum.rc ];then
+  rm -rf $ramdisk/init.spectrum.rc
+  ui_print "delete /init.spectrum.rc"
+fi
+if [ -e $ramdisk/init.spectrum.sh ];then
+  rm -rf $ramdisk/init.spectrum.sh
+  ui_print "delete /init.spectrum.sh"
+fi
+if [ -e $ramdisk/sbin/init.spectrum.rc ];then
+  rm -rf $ramdisk/sbin/init.spectrum.rc
+  ui_print "delete /sbin/init.spectrum.rc"
+fi
+if [ -e $ramdisk/sbin/init.spectrum.sh ];then
+  rm -rf $ramdisk/sbin/init.spectrum.sh
+  ui_print "delete /sbin/init.spectrum.sh"
+fi
+if [ -e $ramdisk/etc/init.spectrum.rc ];then
+  rm -rf $ramdisk/etc/init.spectrum.rc
+  ui_print "delete /etc/init.spectrum.rc"
+fi
+if [ -e $ramdisk/etc/init.spectrum.sh ];then
+  rm -rf $ramdisk/etc/init.spectrum.sh
+  ui_print "delete /etc/init.spectrum.sh"
+fi
+if [ -e $ramdisk/init.aurora.rc ];then
+  rm -rf $ramdisk/init.aurora.rc
+  ui_print "delete /init.aurora.rc"
+fi
+if [ -e $ramdisk/sbin/init.aurora.rc ];then
+  rm -rf $ramdisk/sbin/init.aurora.rc
+  ui_print "delete /sbin/init.aurora.rc"
+fi
+if [ -e $ramdisk/etc/init.aurora.rc ];then
+  rm -rf $ramdisk/etc/init.aurora.rc
+  ui_print "delete /etc/init.aurora.rc"
+fi
+
 # end ramdisk changes
 
 write_boot;
 ## end install
-
