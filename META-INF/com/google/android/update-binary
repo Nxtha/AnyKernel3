@@ -513,7 +513,20 @@ if [ -f version ]; then
   ui_printfile version;
   ui_print " ";
 fi;
-ui_print " " "AnyKernel3 by osm0sis @ xda-developers" " " " ";
+
+ui_print "                                                ";
+ui_print "  ____     _    _  ______    _    ____    _     ";
+ui_print " |  _ \   / \  | |/ / ___|  / \  / ___|  / \    ";
+ui_print " | |_) | / _ \ | ' /\___ \ / _ \ \___ \ / _ \   ";
+ui_print " |  _ < / ___ \| . \ ___) / ___ \ ___) / ___ \  ";
+ui_print " |_| \_/_/   \_|_|\_|____/_/   \_|____/_/   \_\ ";
+ui_print "            ____    _    _   _  ____            ";
+ui_print "           / ___|  / \  | \ | |/ ___|           ";
+ui_print "          | |  _  / _ \ |  \| | |  _            ";
+ui_print "          | |_| |/ ___ \| |\  | |_| |           ";
+ui_print "           \____/_/   \_|_| \_|\____|           ";
+ui_print "                                                ";
+ui_print " Brought to you by Nxtha @RaksasaGang           ";
 
 setup_env;
 
